@@ -45,6 +45,7 @@ struct AuthTextField: View {
         }
         .frame(width: 313, height: 47)
         .background(.white)
+        .containerShape(RoundedRectangle(cornerRadius: 10))
         .overlay {
             RoundedRectangle(cornerRadius: 10)
                 .strokeBorder(isFocused ? Color.black : Color.clear, lineWidth: 1)
