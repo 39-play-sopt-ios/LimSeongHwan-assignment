@@ -18,30 +18,24 @@ struct AuthTextField: View {
     let style: Style
 
     @FocusState private var isFocused: Bool
+    @State private var isPasswordSecure: Bool = true
 
     var body: some View {
         HStack {
-            Group {
-                if style == .email {
-                    TextField("", text: $text, prompt: Text(placeholder))
-                        .typography(.body2)
-                        .focused($isFocused)
-                        .padding(
-                            EdgeInsets(top: 16, leading: 15, bottom: 17, trailing: 0)
-                        )
-                } else {
-                    SecureField("", text: $text, prompt: Text(placeholder))
-                        .typography(.body2)
-                        .focused($isFocused)
-                        .padding(
-                            EdgeInsets(top: 16, leading: 15, bottom: 17, trailing: 16)
-                        )
-                }
-            }
+            inputField
+                .typography(.body2)
+                .focused($isFocused)
+                .textInputAutocapitalization(.never)
+                .padding(.leading, 15)
+            
             if isFocused {
                 HStack(spacing: 4) {
-                    Image(.erase)
-                    style == .email ? Image(.checkOff) : Image(.eyeOn)
+                    Button {
+                        text = ""
+                    } label: {
+                        Image(.erase)
+                    }
+                    trailingButton
                 }
                 .padding(.trailing, 16)
             }
@@ -54,6 +48,42 @@ struct AuthTextField: View {
         .overlay {
             RoundedRectangle(cornerRadius: 10)
                 .strokeBorder(isFocused ? Color.black : Color.clear, lineWidth: 1)
+        }
+    }
+    
+    @ViewBuilder
+    private var inputField: some View {
+        switch style {
+        case .email:
+            TextField("", text: $text, prompt: Text(placeholder))
+                .keyboardType(.emailAddress)
+                .textContentType(.emailAddress)
+        case .password:
+            Group {
+                if isPasswordSecure {
+                    SecureField("", text: $text, prompt: Text(placeholder))
+                        .textContentType(.password)
+                } else {
+                    TextField("", text: $text, prompt: Text(placeholder))
+                }
+            }
+        }
+    }
+    
+    @ViewBuilder
+    private var trailingButton: some View {
+        switch style {
+        case .email:
+            Image(.checkOff)
+        case .password:
+            Button {
+                isPasswordSecure.toggle()
+                Task {
+                    isFocused = true
+                }
+            } label: {
+                Image(isPasswordSecure ? .eyeOn : .eyeOff)
+            }
         }
     }
 }
