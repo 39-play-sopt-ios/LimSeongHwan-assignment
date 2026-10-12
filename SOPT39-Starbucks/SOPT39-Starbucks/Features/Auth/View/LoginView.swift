@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     @State private var email: String = ""
-    @State private var buttonEnabled: Bool = false
+//    @State private var buttonEnabled: Bool = false
     var body: some View {
         VStack(spacing: 0) {
             VStack(alignment: .leading, spacing: 0) {
@@ -34,7 +34,7 @@ struct LoginView: View {
             
             Spacer()
             
-            CTAButton(title: "다음", isEnabled: buttonEnabled) {
+            CTAButton(title: "다음", isEnabled: !email.isEmpty) {
                 // 비밀번호 입력으로 이동
             }
             .padding(.bottom, 13)

@@ -11,7 +11,8 @@ struct PasswordView: View {
     var email: String
     
     @State private var password: String = ""
-    @State private var buttonEnabled: Bool = false
+//    @State private var buttonEnabled: Bool = false
+    @State private var nickname: String = ""
     
     var body: some View {
         VStack(spacing: 0) {
@@ -45,16 +46,22 @@ struct PasswordView: View {
             Button {
                 // 닉네임 바텀시트 열기
             } label: {
-                Text("닉네임 설정")
-                    .typography(.body2)
-                    .underline()
-                    .foregroundStyle(.gray300)
+                Group {
+                    if nickname.isEmpty {
+                        Text("닉네임 설정")
+                            .underline()
+                    } else {
+                        Text("\(nickname)")
+                    }
+                }
+                .typography(.body2)
+                .foregroundStyle(.gray300)
             }
             .padding(.top, 40)
             
             Spacer()
             
-            CTAButton(title: "가입하기", isEnabled: buttonEnabled) {
+            CTAButton(title: "가입하기", isEnabled: !password.isEmpty) {
                 // 가입완료 뷰로 이동
             }
             .padding(.bottom, 13)
