@@ -16,20 +16,20 @@ enum Typography {
 
     var size: CGFloat {
         switch self {
-        case .head2: 24
+        case .head2: 23
         case .subhead: 18
         case .medium: 18
-        case .body1: 16
+        case .body1: 12
         case .body2: 12
         }
     }
 
     var weight: Font.Weight {
         switch self {
-        case .head2: .bold
+        case .head2: .semibold
         case .subhead: .semibold
         case .medium: .medium
-        case .body1: .semibold
+        case .body1: .regular
         case .body2: .regular
         }
     }
