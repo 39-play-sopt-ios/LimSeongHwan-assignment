@@ -11,9 +11,9 @@ struct PasswordView: View {
     var email: String
     
     @State private var password: String = ""
-//    @State private var buttonEnabled: Bool = false
     @State private var nickname: String = ""
     private var isPasswordValid: Bool { AuthValidator.isValidPassword(password) }
+    @State private var isNicknameSheetPresented: Bool = false
     
     var body: some View {
         VStack(spacing: 0) {
@@ -45,7 +45,7 @@ struct PasswordView: View {
             }
             
             Button {
-                // 닉네임 바텀시트 열기
+                isNicknameSheetPresented = true
             } label: {
                 Group {
                     if nickname.isEmpty {
@@ -62,13 +62,19 @@ struct PasswordView: View {
             
             Spacer()
             
-            CTAButton(title: "가입하기", isEnabled: isPasswordValid) {
+            CTAButton(title: "가입하기", isEnabled: isPasswordValid && !nickname.isEmpty) {
                 // 가입완료 뷰로 이동
             }
             .padding(.bottom, 13)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .screenBackground()
+        .sheet(isPresented: $isNicknameSheetPresented) {
+            AuthBottomSheet(nickname: $nickname)
+                .presentationDetents([.medium])
+                .presentationDragIndicator(.visible)
+                .presentationBackground(.darkGreen)
+        }
     }
 }
 
