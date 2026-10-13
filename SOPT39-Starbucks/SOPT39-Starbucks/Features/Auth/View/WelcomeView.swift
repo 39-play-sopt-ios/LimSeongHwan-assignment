@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct WelcomeView: View {
+    @Binding var path: [Route]
     let nickname: String
     
     var body: some View {
@@ -37,5 +38,5 @@ struct WelcomeView: View {
 }
 
 #Preview {
-    WelcomeView(nickname: "성환")
+    WelcomeView(path: .constant([]), nickname: "성환")
 }

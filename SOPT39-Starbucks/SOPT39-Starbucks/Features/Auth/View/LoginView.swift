@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct LoginView: View {
+    @Binding var path: [Route]
+    
     @State private var email: String = ""
-//    @State private var buttonEnabled: Bool = false
     private var isEmailValid: Bool { AuthValidator.isValidEmail(email) }
     var body: some View {
         VStack(spacing: 0) {
@@ -36,7 +37,7 @@ struct LoginView: View {
             Spacer()
             
             CTAButton(title: "다음", isEnabled: isEmailValid) {
-                // 비밀번호 입력으로 이동
+                path.append(.password(email: email))
             }
             .padding(.bottom, 13)
         }
@@ -46,5 +47,5 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView()
+    LoginView(path: .constant([]))
 }

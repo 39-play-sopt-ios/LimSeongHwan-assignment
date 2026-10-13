@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PasswordView: View {
+    @Binding var path: [Route]
     var email: String
     
     @State private var password: String = ""
@@ -63,7 +64,7 @@ struct PasswordView: View {
             Spacer()
             
             CTAButton(title: "가입하기", isEnabled: isPasswordValid && !nickname.isEmpty) {
-                // 가입완료 뷰로 이동
+                path.append(.welcome(nickname: nickname))
             }
             .padding(.bottom, 13)
         }
@@ -79,5 +80,5 @@ struct PasswordView: View {
 }
 
 #Preview {
-    PasswordView(email: "email@email.com")
+    PasswordView(path: .constant([]), email: "email@email.com")
 }
