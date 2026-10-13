@@ -13,6 +13,7 @@ struct PasswordView: View {
     @State private var password: String = ""
 //    @State private var buttonEnabled: Bool = false
     @State private var nickname: String = ""
+    private var isPasswordValid: Bool { AuthValidator.isValidPassword(password) }
     
     var body: some View {
         VStack(spacing: 0) {
@@ -34,10 +35,10 @@ struct PasswordView: View {
                     .padding(.top, 27)
                 
                 HStack(spacing: 5) {
-                    Image(.enableOff)
+                    Image(isPasswordValid ? .enableOn : .enableOff)
                     Text("영문, 숫자, 특수문자 포함 10글자 이상")
                         .typography(.body2)
-                        .foregroundStyle(.gray300)
+                        .foregroundStyle(isPasswordValid ? .darkGreen : .gray300)
                 }
                 .padding(.top, 13)
                 .padding(.leading, 4)
@@ -61,7 +62,7 @@ struct PasswordView: View {
             
             Spacer()
             
-            CTAButton(title: "가입하기", isEnabled: !password.isEmpty) {
+            CTAButton(title: "가입하기", isEnabled: isPasswordValid) {
                 // 가입완료 뷰로 이동
             }
             .padding(.bottom, 13)

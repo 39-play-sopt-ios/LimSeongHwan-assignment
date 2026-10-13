@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AuthTextField: View {
     enum Style {
-        case email
+        case email(isValid: Bool)
         case password
     }
     
@@ -74,8 +74,8 @@ struct AuthTextField: View {
     @ViewBuilder
     private var trailingButton: some View {
         switch style {
-        case .email:
-            Image(.checkOff)
+        case .email(let isValid):
+            Image(isValid ? .checkOn : .checkOff)
         case .password:
             Button {
                 isPasswordSecure.toggle()
@@ -92,6 +92,7 @@ struct AuthTextField: View {
 #Preview {
     @Previewable @State var email = ""
     @Previewable @State var password = ""
-    AuthTextField(text: $email, placeholder: "email@email.com", style: .email)
+    AuthTextField(text: $email, placeholder: "email@email.com", style: .email(isValid: false))
+    AuthTextField(text: $email, placeholder: "email@email.com", style: .email(isValid: true))
     AuthTextField(text: $password, placeholder: "password", style: .password)
 }

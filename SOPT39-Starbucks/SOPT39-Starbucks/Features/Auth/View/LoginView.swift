@@ -10,6 +10,7 @@ import SwiftUI
 struct LoginView: View {
     @State private var email: String = ""
 //    @State private var buttonEnabled: Bool = false
+    private var isEmailValid: Bool { AuthValidator.isValidEmail(email) }
     var body: some View {
         VStack(spacing: 0) {
             VStack(alignment: .leading, spacing: 0) {
@@ -29,12 +30,12 @@ struct LoginView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.leading, 30)
             
-            AuthTextField(text: $email, placeholder: "email@address.com", style: .email)
+            AuthTextField(text: $email, placeholder: "email@address.com", style: .email(isValid: isEmailValid))
                 .padding(.top, 27)
             
             Spacer()
             
-            CTAButton(title: "다음", isEnabled: !email.isEmpty) {
+            CTAButton(title: "다음", isEnabled: isEmailValid) {
                 // 비밀번호 입력으로 이동
             }
             .padding(.bottom, 13)
