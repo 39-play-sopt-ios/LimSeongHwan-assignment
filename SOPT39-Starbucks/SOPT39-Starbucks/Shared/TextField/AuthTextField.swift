@@ -11,6 +11,7 @@ struct AuthTextField: View {
     enum Style {
         case email(isValid: Bool)
         case password
+        case nickname
     }
     
     @Binding var text: String
@@ -68,6 +69,8 @@ struct AuthTextField: View {
                     TextField("", text: $text, prompt: Text(placeholder))
                 }
             }
+        case .nickname:
+            TextField("", text: $text, prompt: Text(placeholder))
         }
     }
     
@@ -85,6 +88,8 @@ struct AuthTextField: View {
             } label: {
                 Image(isPasswordSecure ? .eyeOn : .eyeOff)
             }
+        case .nickname:
+            EmptyView()
         }
     }
 }
