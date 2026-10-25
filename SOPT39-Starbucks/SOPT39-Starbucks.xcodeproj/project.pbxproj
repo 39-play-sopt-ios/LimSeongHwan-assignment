@@ -10,9 +10,22 @@
 		CA4759AC307BC7530088A2D9 /* SOPT39-Starbucks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SOPT39-Starbucks.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		CA6CD1C0307D018A0055A503 /* Exceptions for "SOPT39-Starbucks" folder in "SOPT39-Starbucks" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				APP/Info.plist,
+			);
+			target = CA4759AB307BC7530088A2D9 /* SOPT39-Starbucks */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		CA4759AE307BC7530088A2D9 /* SOPT39-Starbucks */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				CA6CD1C0307D018A0055A503 /* Exceptions for "SOPT39-Starbucks" folder in "SOPT39-Starbucks" target */,
+			);
 			path = "SOPT39-Starbucks";
 			sourceTree = "<group>";
 		};
@@ -246,6 +259,7 @@
 				DEVELOPMENT_TEAM = XRZBKU6SF9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SOPT39-Starbucks/APP/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -279,6 +293,7 @@
 				DEVELOPMENT_TEAM = XRZBKU6SF9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SOPT39-Starbucks/APP/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
