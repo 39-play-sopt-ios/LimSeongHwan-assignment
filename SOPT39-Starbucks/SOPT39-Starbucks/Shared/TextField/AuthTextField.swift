@@ -27,7 +27,7 @@ struct AuthTextField: View {
                 .typography(.body2)
                 .focused($isFocused)
                 .textInputAutocapitalization(.never)
-                .padding(.leading, 15)
+                .padding(EdgeInsets(top: 16, leading: 15, bottom: 17, trailing: 0))
             
             if isFocused {
                 HStack(spacing: 4) {
@@ -44,7 +44,6 @@ struct AuthTextField: View {
         .onTapGesture {
             isFocused = true
         }
-        .frame(width: 313, height: 47)
         .background(.white)
         .containerShape(RoundedRectangle(cornerRadius: 10))
         .overlay {
@@ -98,6 +97,9 @@ struct AuthTextField: View {
     @Previewable @State var email = ""
     @Previewable @State var password = ""
     AuthTextField(text: $email, placeholder: "email@email.com", style: .email(isValid: false))
+        .padding(.horizontal, 40)
     AuthTextField(text: $email, placeholder: "email@email.com", style: .email(isValid: true))
+        .padding(.horizontal, 40)
     AuthTextField(text: $password, placeholder: "password", style: .password)
+        .padding(.horizontal, 40)
 }

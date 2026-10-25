@@ -34,6 +34,7 @@ struct PasswordView: View {
             VStack(alignment: .leading, spacing: 0) {
                 AuthTextField(text: $password, placeholder: "비밀번호 입력", style: .password)
                     .padding(.top, 27)
+                    .padding(.horizontal, 31)
                 
                 HStack(spacing: 5) {
                     Image(isPasswordValid ? .enableOn : .enableOff)
@@ -42,7 +43,7 @@ struct PasswordView: View {
                         .foregroundStyle(isPasswordValid ? .darkGreen : .gray300)
                 }
                 .padding(.top, 13)
-                .padding(.leading, 4)
+                .padding(.leading, 35)
             }
             
             Button {

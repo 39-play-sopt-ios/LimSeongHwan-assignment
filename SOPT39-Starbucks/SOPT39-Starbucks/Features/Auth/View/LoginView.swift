@@ -33,6 +33,7 @@ struct LoginView: View {
             
             AuthTextField(text: $email, placeholder: "email@address.com", style: .email(isValid: isEmailValid))
                 .padding(.top, 27)
+                .padding(.horizontal, 31)
             
             Spacer()
             

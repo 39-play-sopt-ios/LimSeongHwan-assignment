@@ -23,7 +23,7 @@ struct AuthBottomSheet: View {
                 .padding(.leading, 22)
             
             AuthTextField(text: $input, placeholder: "닉네임", style: .nickname)
-                .padding(.top, 19)
+                .padding(EdgeInsets(top: 19, leading: 29, bottom: 0, trailing: 33))
             
             Spacer()
             
