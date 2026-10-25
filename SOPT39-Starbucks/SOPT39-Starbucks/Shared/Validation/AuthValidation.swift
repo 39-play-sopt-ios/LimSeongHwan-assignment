@@ -13,6 +13,6 @@ enum AuthValidator {
     }
     
     static func isValidPassword(_ text: String) -> Bool {
-        text.wholeMatch(of: /(?=.*[A-Za-z])(?=.*\d)(?=.*[^A-Za-z\d]).{8,20}/) != nil
+        text.wholeMatch(of: /(?=.*[A-Za-z])(?=.*\d)(?=.*[^A-Za-z\d]).{10,20}/) != nil
     }
 }
