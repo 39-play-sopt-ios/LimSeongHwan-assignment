@@ -10,6 +10,7 @@ import SwiftUI
 struct WelcomeView: View {
     @Binding var path: [Route]
     let nickname: String
+    let onMainTap: () -> Void
     
     var body: some View {
         VStack {
@@ -28,7 +29,7 @@ struct WelcomeView: View {
             Spacer()
             
             CTAButton(title: "메인으로", style: .secondary) {
-                // 메인 뷰로 이동
+                onMainTap()
             }
             .padding(.bottom, 13)
         }
@@ -38,5 +39,5 @@ struct WelcomeView: View {
 }
 
 #Preview {
-    WelcomeView(path: .constant([]), nickname: "성환")
+    WelcomeView(path: .constant([]), nickname: "성환") {}
 }

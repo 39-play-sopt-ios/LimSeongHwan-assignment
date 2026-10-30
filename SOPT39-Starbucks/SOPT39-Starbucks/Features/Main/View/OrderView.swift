@@ -9,9 +9,9 @@ import SwiftUI
 
 struct OrderView: View {
     @State private var selectedTab: MenuTab = .allMenu
-    @State private var path: [OrderRoute] = []
-    @State private var menuViewModel = MenuViewModel()
-    
+    @Binding var path: [OrderRoute]
+    let menuViewModel: MenuViewModel
+
     var body: some View {
         NavigationStack(path: $path) {
             VStack(spacing: 0) {
@@ -79,5 +79,5 @@ extension OrderView {
 }
 
 #Preview {
-    OrderView()
+    OrderView(path: .constant([]), menuViewModel: MenuViewModel())
 }
