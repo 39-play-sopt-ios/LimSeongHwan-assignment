@@ -10,11 +10,13 @@ import SwiftUI
 struct MainHeader: View {
     var showsBackButton = true
     
+    @Environment(\.dismiss) private var dismiss
+    
     var body: some View {
         HStack {
             if showsBackButton {
                 Button {
-                    // 뒤로가기
+                    dismiss()
                 } label: {
                     Image(.chevronLeftWhite)
                         .renderingMode(.template)
