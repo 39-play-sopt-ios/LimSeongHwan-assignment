@@ -45,7 +45,7 @@ struct OrderView: View {
             
             categoryList
             
-            OrderStoreBar(storeName: "성수역", basketCount: 0)
+            OrderShoppingCartBar(storeName: "성수역", basketCount: 0)
         }
     }
     
