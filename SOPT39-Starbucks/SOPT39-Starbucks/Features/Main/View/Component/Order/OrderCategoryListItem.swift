@@ -19,7 +19,7 @@ struct OrderCategoryListItem: View {
                 .clipShape(Circle())
             
             Text(data.categoryName)
-                .typography(.categoryName)
+                .typography(.subhead2)
                 .foregroundStyle(.gray800)
             
             Spacer()
