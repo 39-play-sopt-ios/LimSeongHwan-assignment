@@ -11,6 +11,7 @@ struct OrderView: View {
     @State private var selectedTab: MenuTab = .allMenu
     @State private var selectedCategory: MenuCategory = .drink
     @State private var path: [OrderRoute] = []
+    @State private var menuViewModel = MenuViewModel()
     
     var body: some View {
         NavigationStack(path: $path) {
@@ -53,7 +54,9 @@ struct OrderView: View {
             .navigationDestination(for: OrderRoute.self) { route in
                 switch route {
                 case .newMenu:
-                    NewMenuView()
+                    NewMenuView(path: $path, menuViewModel: menuViewModel)
+                case .menuDetail(let id):
+                    MenuDetailView(menuId: id, menuViewModel: menuViewModel)
                 }
             }
         }

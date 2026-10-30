@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct NewMenuView: View {
+    @Binding var path: [OrderRoute]
+
+    let menuViewModel: MenuViewModel
+
     var body: some View {
         VStack(spacing: 0) {
             MainHeader()
@@ -18,10 +22,14 @@ struct NewMenuView: View {
                 .padding(.vertical, 14)
                 .frame(maxWidth: .infinity, alignment: .leading)
 
-            List(MenuModel.newMenus) { menu in
-                MenuListItem(menu: menu)
-                    .listRowInsets(EdgeInsets())
-                    .listRowSeparator(.hidden)
+            List(menuViewModel.newMenus) { menu in
+                Button {
+                    path.append(.menuDetail(id: menu.id))
+                } label: {
+                    MenuListItem(menu: menu)
+                }
+                .listRowInsets(EdgeInsets())
+                .listRowSeparator(.hidden)
             }
             .listStyle(.plain)
             .contentMargins(.top, 18, for: .scrollContent)
@@ -33,5 +41,5 @@ struct NewMenuView: View {
 }
 
 #Preview {
-    NewMenuView()
+    NewMenuView(path: .constant([]), menuViewModel: MenuViewModel())
 }
