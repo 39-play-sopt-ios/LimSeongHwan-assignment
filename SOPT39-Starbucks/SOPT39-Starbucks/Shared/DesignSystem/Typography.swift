@@ -19,6 +19,7 @@ enum Typography {
     case storeName
     case basketCount
     case tabbarText
+    case categoryName
 
     var size: CGFloat {
         switch self {
@@ -33,6 +34,7 @@ enum Typography {
         case .storeName: 13
         case .basketCount: 15
         case .tabbarText: 12
+        case .categoryName: 14
         }
     }
 
@@ -49,6 +51,7 @@ enum Typography {
         case .storeName: .medium
         case .basketCount: .semibold
         case .tabbarText: .medium
+        case .categoryName: .semibold
         }
     }
 
@@ -65,6 +68,7 @@ enum Typography {
         case .storeName: 100
         case .basketCount: 100
         case .tabbarText: 100
+        case .categoryName: 100
         }
     }
 
@@ -81,6 +85,7 @@ enum Typography {
         case .storeName: 0
         case .basketCount: 0
         case .tabbarText: 0
+        case .categoryName: 0
         }
     }
 

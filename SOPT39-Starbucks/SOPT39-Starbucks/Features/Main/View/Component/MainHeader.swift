@@ -8,14 +8,18 @@
 import SwiftUI
 
 struct MainHeader: View {
+    var showsBackButton = true
+    
     var body: some View {
         HStack {
-            Button {
-                // 뒤로가기
-            } label: {
-                Image(.chevronLeftWhite)
-                    .renderingMode(.template)
-                    .foregroundStyle(.gray500)
+            if showsBackButton {
+                Button {
+                    // 뒤로가기
+                } label: {
+                    Image(.chevronLeftWhite)
+                        .renderingMode(.template)
+                        .foregroundStyle(.gray500)
+                }
             }
             
             Spacer()

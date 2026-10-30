@@ -14,13 +14,13 @@ struct OrderMenuTab: View {
     var body: some View {
         Text(tabText)
             .typography(.medium2)
-            .foregroundStyle(isSelected ? .darkGreen : .gray300)
+            .foregroundStyle(isSelected ? .subGreen : .gray300)
             .padding(.vertical, 14)
             .frame(width: 130)
             .overlay(alignment: .bottom) {
                 if (isSelected) {
                     Rectangle()
-                        .fill(.darkGreen)
+                        .fill(.subGreen)
                         .frame(height: 4)
                 }
             }
