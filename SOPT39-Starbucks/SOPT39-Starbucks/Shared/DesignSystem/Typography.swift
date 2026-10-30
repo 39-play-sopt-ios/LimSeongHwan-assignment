@@ -17,6 +17,7 @@ enum Typography {
     case body1
     case body2
     case body3
+    case caption
     case storeName
     case basketCount
     case tabbarText
@@ -32,6 +33,7 @@ enum Typography {
         case .body1: 12
         case .body2: 12
         case .body3: 14
+        case .caption: 10
         case .storeName: 13
         case .basketCount: 15
         case .tabbarText: 12
@@ -49,6 +51,7 @@ enum Typography {
         case .body1: .regular
         case .body2: .regular
         case .body3: .regular
+        case .caption: .regular
         case .storeName: .medium
         case .basketCount: .semibold
         case .tabbarText: .medium
@@ -66,6 +69,7 @@ enum Typography {
         case .body1: 100
         case .body2: 100
         case .body3: 130
+        case .caption: 140
         case .storeName: 100
         case .basketCount: 100
         case .tabbarText: 100
@@ -83,6 +87,7 @@ enum Typography {
         case .body1: 0
         case .body2: 0
         case .body3: 0
+        case .caption: 0
         case .storeName: 0
         case .basketCount: 0
         case .tabbarText: 0

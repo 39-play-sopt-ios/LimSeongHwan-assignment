@@ -12,6 +12,10 @@ import Observation
 final class MenuViewModel {
     private(set) var newMenus: [MenuModel] = MenuModel.newMenus
 
+    var likedMenus: [MenuModel] {
+        newMenus.filter { $0.isLiked }
+    }
+
     func menu(id: UUID) -> MenuModel? {
         newMenus.first { $0.id == id }
     }
