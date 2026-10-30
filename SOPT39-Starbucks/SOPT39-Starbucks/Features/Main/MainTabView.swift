@@ -15,12 +15,16 @@ struct MainTabView: View {
     var body: some View {
         VStack(spacing: 0) {
             switch selectedTab {
+            case .home:
+                HomeView()
+            case .pay:
+                PayView()
             case .order:
                 OrderView(path: $orderPath, menuViewModel: menuViewModel)
-            default:
-                Text(selectedTab.title)
-                    .typography(.head1)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            case .gift:
+                GiftView()
+            case .other:
+                OtherView()
             }
 
             if !isTabBarHidden {
